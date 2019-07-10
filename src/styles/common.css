@@ -1,0 +1,8 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+
+.title {
+  color: #CC1445;
+  font-family: 'Pacifico', serif, sans-serif;
+}

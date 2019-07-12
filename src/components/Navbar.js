@@ -17,7 +17,7 @@ const Navbar = () => (
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/">
-              <button class="btn btn-primary">
+              <button className="btn btn-primary">
                 Cerrar sesion
               </button>
             </Link>

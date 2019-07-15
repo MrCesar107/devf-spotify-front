@@ -5,6 +5,7 @@ import './styles/App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 // Component
+import ProtectedRoute from './components/ProtectedRoute'
 import UserLogin from './components/UserLogin'
 import Home from './components/Home'
 
@@ -18,7 +19,10 @@ function App() {
     <div className="App">
       <Router>
         <Route path="/" exact component={ UserLogin } />
-        <Route path="/home" component={ Home }/>
+        <ProtectedRoute
+          exact
+          path="/home"
+          component={ Home } />
       </Router>
     </div>
   );

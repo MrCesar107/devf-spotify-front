@@ -64,8 +64,14 @@
 }
 
 .artist > img {
-  max-width: 210px;
+  max-width: 100%;
   height: 222px;
   border-radius: 50%;
+  padding: 10px 0px;
+}
+
+.album > img {
+  max-width: 100%;
+  height: 222px;
   padding: 10px 0px;
 }

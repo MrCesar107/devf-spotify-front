@@ -3,35 +3,35 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 // Components
-import Artist from './Artist'
+import Album from './Album'
 
-const ARTISTS = gql`
+const ALBUMS = gql`
   query {
-    getArtists {
+    getAlbums {
       name
-      bio
-      profile
+      year
+      coverPage
     }
   }
 `
 
 const ArtistContainer = (props) => {
   return(
-    <Query query={ARTISTS}>
+    <Query query={ALBUMS}>
       {({ loading, error, data }) => {
         if (loading) return 'Loading...'
-        if (error) return `Error: ${error}`
+        if (error) return `Error`
 
         return(
           <div className="container artist-container">
             <div className="row">
               <div className="col-sm-12">
-                <h3 className="subtitle text-center">Artistas</h3>
+                <h3 className="subtitle text-center">Albumes</h3>
               </div>
             </div>
             <div className="row">
-              {data.getArtists.map(artist => (
-                  <Artist data={artist} />
+              {data.getAlbums.map(album => (
+                  <Album data={album} />
               ))}
             </div>
           </div>

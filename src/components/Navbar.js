@@ -6,8 +6,8 @@ import { Link } from "react-router-dom"
 const Navbar = () => (
   <div>
     <nav className="navbar navbar-expand-lg navbar-light">
-      <a className="navbar-brand mx-auto" href="#">Vanillify</a>
-      <div className="navbar-collapse" id="navbarSupportedContent">
+      <div className="navbar-brand mx-auto">Vanillify</div>
+      <div>
         <ul className="navbar-nav">
           <li className="nav-item">
             <img

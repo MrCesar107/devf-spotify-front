@@ -5,7 +5,6 @@ import '../styles/App.css';
 import '../styles/common.css'
 
 // Components
-import './forms/Login'
 import Login from './forms/Login';
 
 const UserLogin = (props) => {
@@ -13,6 +12,7 @@ const UserLogin = (props) => {
     <div className="wrapper">
       <div className="container login-container">
         <h1 className="text-center title">Vanillify</h1>
+        <h2 className="text-center sub-title">Iniciar Sesión</h2>
         <div className="form-container">
           <div className="card">
             <div className="card-body">

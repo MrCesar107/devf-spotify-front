@@ -25,7 +25,7 @@ class Login extends React.Component {
       localStorage.setItem('jwt', token)
       this.props.props.history.push({
         pathname: '/home',
-        state: { isLogged: true }
+        state: { isLogged: true, token: token }
       })
     }
   }
@@ -151,7 +151,7 @@ class Login extends React.Component {
                     <div className="form-inline btn-toolbar">
                       <div className="btn-group mr-4" role="group">
                         <Link to="/signup">
-                          <button type="button" className="btn btn-primary">
+                          <button type="button" className="btn btn-success">
                             Registrarse
                           </button>
                         </Link>

@@ -15,28 +15,31 @@ const ARTIST = gql`
   }
 `
 
-const ArtistContainer = () =>(
-  <Query query={ARTIST}>
-    {({ loading, error, data }) => {
-      if (loading) return 'Loading...'
-      if (error) return `Error: ${error}`
+const ArtistContainer = (props) => {
+  return(
+    <Query query={ARTIST}>
+      {({ loading, error, data }) => {
+        if (loading) return 'Loading...'
+        if (error) return `Error: ${error}`
+        if (props) console.log(props.token.location.state.token)
 
-      return(
-        <div className="container artist-container">
-          <div className="row">
-            <div className="col-sm-12">
-              <h3 className="subtitle">Artistas</h3>
+        return(
+          <div className="container artist-container">
+            <div className="row">
+              <div className="col-sm-12">
+                <h3 className="subtitle">Artistas</h3>
+              </div>
+            </div>
+            <div className="row">
+              {data.getArtists.map(artist => (
+                  <Artist data={artist} />
+              ))}
             </div>
           </div>
-          <div className="row">
-            {data.getArtists.map(artist => (
-                <Artist data={artist} />
-            ))}
-          </div>
-        </div>
-      )
-    }}
-  </Query>
-)
+        )
+      }}
+    </Query>
+  )
+}
 
 export default ArtistContainer

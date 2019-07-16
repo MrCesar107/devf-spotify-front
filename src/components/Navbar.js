@@ -16,7 +16,7 @@ const Navbar = () => (
             alt = "user-profile" />
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/logout">
               <button className="btn btn-primary">
                 Cerrar sesion
               </button>

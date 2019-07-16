@@ -14,6 +14,12 @@
   background-color: #FFEE00;
 }
 
+.wrapper-signup {
+  width: 100%;
+  height: auto;
+  background-color: #FFEE00;
+}
+
 .navbar {
   background-color: #FFEE00;
 }
@@ -39,7 +45,11 @@
 }
 
 .login-container{
-  padding: 40px 0px
+  padding: 40px 0px;
+}
+
+.signup-container {
+  padding: 20px 0px;
 }
 
 .navbar-brand {

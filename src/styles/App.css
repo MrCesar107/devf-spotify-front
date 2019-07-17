@@ -75,3 +75,22 @@
   height: 222px;
   padding: 10px 0px;
 }
+
+.player-container {
+  width: 210px;
+  height: auto;
+  background: #282828;
+}
+
+.player-controls > .player-control {
+  margin: 19px;
+}
+
+.player-controls .fa-play {
+  color: #282828
+}
+
+.song-duration {
+  height: 5px;
+  background-color: #CC1445;
+}

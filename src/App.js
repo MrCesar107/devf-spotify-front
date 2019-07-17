@@ -10,6 +10,7 @@ import UserLogin from './components/UserLogin'
 import Home from './components/Home'
 import Logout from './components/forms/Logout'
 import UserSignup from './components/UserSignup'
+import Player from './components/Player'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -27,6 +28,7 @@ function App() {
           component={ Home } />
         <Route path="/signup" component={UserSignup}/>
         <Route path="/logout" component={Logout} />
+        <Route path="/player" component={Player} />
       </Router>
     </div>
   );

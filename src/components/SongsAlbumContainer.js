@@ -4,6 +4,7 @@ import gql from 'graphql-tag'
 
 // Components
 import Song from './Song'
+import Player from './Player'
 
 const ALBUM_SONGS = gql`
   query GetSongsByAlbum($album: String!) {
@@ -15,6 +16,7 @@ const ALBUM_SONGS = gql`
 `
 
 const SongsAlbumContainer = (props) => {
+  
   const { album } = props
   return(
     <Query query={ALBUM_SONGS} variables={{ album: album }}>
@@ -23,10 +25,17 @@ const SongsAlbumContainer = (props) => {
         if (error) return 'Error'
 
         return (
-          <div className="songs-album-container">
-            {data.getSongsByAlbum.map(song => (
-              <Song data={song} />
-            ))}
+          <div>
+            <div>
+              <div className="songs-album-container">
+                {data.getSongsByAlbum.map(song => (
+                  <Song data={song} />
+                ))}
+              </div>
+            </div>
+            <div>
+              <Player songs={data.getSongsByAlbum}/>
+            </div>
           </div>
         )
       }}

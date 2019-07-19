@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Player extends Component {
   state = {
-    url: 'http://res.cloudinary.com/dnwmckxn4/video/upload/v1563327060/aazgnrw9ylbiphbqfw7z.mp3',
+    url: null,
     pip: false,
     playing: false,
     controls: false,
@@ -107,6 +107,12 @@ class Player extends Component {
     this.player = player
   }
 
+  componentDidMount() {
+    this.setState((state, props) => {
+      return { url: props.songs.map(({ source }) => source) }
+    })
+  }
+
   render() {
     const {
       url,
@@ -124,7 +130,7 @@ class Player extends Component {
     } = this.state
 
     return (
-      <div>
+      <div className="player">
         <ReactPlayer
           ref={this.ref}
           className="react-player"

@@ -6,7 +6,11 @@ import { Link } from "react-router-dom"
 const Navbar = () => (
   <div>
     <nav className="navbar navbar-expand-lg navbar-light">
-      <div className="navbar-brand mx-auto">Vanillify</div>
+        <div className="navbar-brand mx-auto">
+          <Link to='/home'>
+            Vanillify
+          </Link>
+        </div>
       <div>
         <ul className="navbar-nav">
           <li className="nav-item">

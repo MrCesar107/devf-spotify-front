@@ -6,7 +6,10 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route 
       {...rest}
       render={props => {
-        if (props.location.state !== undefined && props.location.state.isLogged)
+        console.log(localStorage.getItem('jwt'))
+        if (localStorage.getItem('jwt') !== null &&
+            localStorage.getItem('jwt') !== undefined &&
+            localStorage.getItem('jwt') !== '')
           return <Component {...props} />
         else
           return <Redirect to={

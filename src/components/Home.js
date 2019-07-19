@@ -9,8 +9,10 @@ const Home = (props) => {
   return(
     <div>
       <Navbar />
-      <ArtistContainer />
-      <AlbumContainer />
+      <div className="container">
+        <ArtistContainer />
+        <AlbumContainer />
+      </div>
     </div>
   )
 }

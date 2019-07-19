@@ -22,6 +22,7 @@
 
 .navbar {
   background-color: #FFEE00;
+  position: fixed;
 }
 
 .navbar-collapse {
@@ -63,14 +64,14 @@
   padding: 75px;
 }
 
-.artist > img {
+.artist img {
   max-width: 100%;
   height: 222px;
   border-radius: 50%;
   padding: 10px 0px;
 }
 
-.album > img {
+.album img {
   max-width: 100%;
   height: 222px;
   padding: 10px 0px;
@@ -93,4 +94,31 @@
 .song-duration {
   height: 5px;
   background-color: #CC1445;
+}
+
+.page-container {
+  padding: 50px 20px;
+}
+
+.song-container {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  margin: 50px 0px;
+  border-top: 3px ridge #636363;
+  border-bottom: 3px ridge #636363;
+}
+
+.songs-album-container {
+  margin: 50px 0px;
+}
+
+.btn-song {
+  background: none !important;
+  color: #cccccc !important;
+}
+
+.btn-song:hover {
+  color: #eee !important;
+  transition: 0.5s;
 }

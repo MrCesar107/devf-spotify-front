@@ -5,33 +5,33 @@ import gql from 'graphql-tag'
 // Components
 import Album from './Album'
 
-const ALBUMS = gql`
-  query {
-    getAlbums {
+const ARTIST_ALBUMS = gql`
+  query GetAlbumsByArtist($artist: String!) {
+    getAlbumsByArtist(artist: $artist) {
       id
       name
       year
       coverPage
     }
-  }
-`
+  }`
 
-const AlbumContainer = (props) => {
+const ArtistAlbumsContainer = (props) => {
+  const { artist } = props
   return(
-    <Query query={ALBUMS}>
+    <Query query={ARTIST_ALBUMS} variables={{ artist: artist }}>
       {({ loading, error, data }) => {
         if (loading) return 'Loading...'
-        if (error) return `Error`
-
+        if (error) return 'Error'
+        
         return(
-          <div className="artist-container">
+          <div>
             <div className="row">
               <div className="col-sm-12">
-                <h3 className="subtitle">Albumes</h3>
+                <h3 className="subtitle">Albums</h3>
               </div>
             </div>
             <div className="row">
-              {data.getAlbums.map(album => (
+              {data.getAlbumsByArtist.map(album => (
                   <Album data={album} />
               ))}
             </div>
@@ -42,4 +42,4 @@ const AlbumContainer = (props) => {
   )
 }
 
-export default AlbumContainer
+export default ArtistAlbumsContainer

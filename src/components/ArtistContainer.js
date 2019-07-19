@@ -8,6 +8,7 @@ import Artist from './Artist'
 const ARTISTS = gql`
   query {
     getArtists {
+      id
       name
       bio
       profile
@@ -23,15 +24,15 @@ const ArtistContainer = (props) => {
         if (error) return `Error: ${error}`
 
         return(
-          <div className="container artist-container">
+          <div className="artist-container">
             <div className="row">
               <div className="col-sm-12">
-                <h3 className="subtitle text-center">Artistas</h3>
+                <h3 className="subtitle">Artistas</h3>
               </div>
             </div>
             <div className="row">
               {data.getArtists.map(artist => (
-                  <Artist data={artist} />
+                <Artist data={artist} />
               ))}
             </div>
           </div>

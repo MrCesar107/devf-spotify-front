@@ -13,6 +13,7 @@ import UserSignup from './components/UserSignup'
 import Player from './components/Player'
 import ArtistPage from './components/ArtistPage'
 import AlbumPage from './components/AlbumPage'
+import Admin from './components/Admin'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/player" component={Player} />
         <ProtectedRoute exact path="/artist/:id" component={ArtistPage} />
         <ProtectedRoute exact path='/album/:id' component={AlbumPage} />
+        <Route path='/admin' component={Admin} />
       </Router>
     </div>
   );

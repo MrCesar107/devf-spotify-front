@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Player extends Component {
   state = {
@@ -15,7 +14,8 @@ class Player extends Component {
     loaded: false,
     duration: 0,
     playbackRate: 1.0,
-    loop: false 
+    loop: false,
+    index: 0
   }
 
   load = url=> {
@@ -25,6 +25,10 @@ class Player extends Component {
       loaded: 0,
       pip: false
     })
+  }
+
+  componentDidMount() {
+    this.setState({ url: this.props.songs[this.state.index].source })
   }
 
   playPause = () => {
@@ -94,8 +98,8 @@ class Player extends Component {
   }
 
   onEnded = () => {
-    console.log('onEnded')
     this.setState({ playing: this.state.loop })
+    this.playTracks()
   }
 
   onDuration = (duration) => {
@@ -107,10 +111,34 @@ class Player extends Component {
     this.player = player
   }
 
-  componentDidMount() {
-    this.setState((state, props) => {
-      return { url: props.songs.map(({ source }) => source) }
-    })
+  playTracks = () => {
+    if (this.state.index < (this.props.songs.length) - 1) {
+      this.setState({ index: this.state.index += 1 })
+      this.setState({ playing: true })
+    } else {
+      this.setState({ index: 0 })
+      this.setState({ playing: false })
+    }
+
+    this.setState({ url: this.props.songs[this.state.index].source })
+  }
+
+  forwardTrack = () => {
+    if (this.state.index < (this.props.songs.length) - 1)
+    {
+      this.setState({ index: this.state.index += 1 })
+    }
+
+    this.setState({ url: this.props.songs[this.state.index].source })
+  }
+
+  backwardTrack = () => {
+    if (this.state.index > 0)
+    {
+      this.setState({ index: this.state.index -= 1 })
+      
+    }
+    this.setState({ url: this.props.songs[this.state.index].source })
   }
 
   render() {
@@ -157,14 +185,18 @@ class Player extends Component {
         <div className="song-duration" style={{width: `${this.state.played * 100}%`}} />
         <div className="player-container mx-auto">
           <div className="player-controls">
-            <button className="player-control">
+            <button
+              className="player-control"
+              onClick={this.backwardTrack}>
               <i className="fas fa-fast-backward" />
             </button>
             <button className="player-control"
               onClick={this.playPause}>
               {playing ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i>}
             </button>
-            <button className="player-control">
+            <button
+              className="player-control"
+              onClick={this.forwardTrack}>
               <i className="fas fa-fast-forward" />
             </button>
           </div>

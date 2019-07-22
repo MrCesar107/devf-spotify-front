@@ -4,6 +4,7 @@ import { createUploadLink } from 'apollo-upload-client'
 import { onError } from 'apollo-link-error'
 import { ApolloLink } from 'apollo-link'
 
+const DB_URI = "http://localhost:4000"
 const PROD_DB_URI = "https://frozen-chamber-10728.herokuapp.com/graphql"
 
 const AuthLink = (operation, next) => {
@@ -39,7 +40,8 @@ const client = new ApolloClient({
     }),
     AuthLink,
     new createUploadLink({
-      uri: PROD_DB_URI
+      // uri: PROD_DB_URI     Only for production
+      uri: DB_URI,
     }),
   ]),
   cache: new InMemoryCache(),

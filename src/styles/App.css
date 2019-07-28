@@ -101,8 +101,46 @@
 }
 
 .song-duration {
+  -webkit-appearance: none;
+  width: 100%;
   height: 5px;
-  background-color: #CC1445;
+  background: #222;
+  position: fixed;
+  cursor: pointer;
+  z-index: -10000;
+}
+
+.second-song-duration {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #222;
+  position: fixed;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.song-duration:focus, .second-song-duration:focus {
+  outline-width: 0px !important;
+}
+
+.song-duration::-webkit-slider-thumb, .second-song-duration::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0px;
+  height: 0px;
+}
+
+.song-duration::-moz-slider-thumb, .second-song-duration::-webkit-slider-thumb {
+  -moz-appearance: none;
+  width: 0px;
+  height: 0px;
+}
+
+.song-duration-bar {
+  width: 100%;
+  height: 5px;
+  background: #CC1445;
 }
 
 .page-container {

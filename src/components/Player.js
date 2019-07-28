@@ -182,7 +182,25 @@ class Player extends Component {
           onProgress={this.onProgress}
           onDuration={this.onDuration}
         />
-        <div className="song-duration" style={{width: `${this.state.played * 100}%`}} />
+        <input
+          className="song-duration"
+          type='range' min={0} max={1} step='any'
+          value={played}
+          onMouseDown={this.onSeekMouseDown}
+          onChange={this.onSeekChange}
+          onMouseUp={this.onSeekMouseUp}
+        />
+        <input
+          className="second-song-duration"
+          type='range' min={0} max={1} step='any'
+          value={played}
+          onMouseDown={this.onSeekMouseDown}
+          onChange={this.onSeekChange}
+          onMouseUp={this.onSeekMouseUp}
+          style={{background: 'none'}}
+        />
+        <div className="song-duration-bar" 
+             style={{width: `${this.state.played * 100}%`}} />
         <div className="player-container mx-auto">
           <div className="player-controls">
             <button
